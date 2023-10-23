@@ -86,3 +86,56 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+// let totalMonths = finances.length;
+// let netTotal = 0;
+// let totalChange = 0;
+
+// // Loop through the dataset and calculate net total Profit/Losses and total change in Profit/Losses
+// for (let i = 0; i < finances.length; i++) {
+//   netTotal += finances[i][1]; // Access the Profit/Losses value (index 1) of each record
+  
+//   if (i > 0) {
+//     totalChange += finances[i][1] - finances[i - 1][1]; // Calculate the change in Profit/Losses from the previous month
+//   }
+// }
+
+// // Calculate the average change in Profit/Losses
+// let averageChange = totalChange / (totalMonths - 1);
+
+// // Output the results
+// console.log("Total number of months: " + totalMonths);
+// console.log("Net total Profit/Losses: $" + netTotal);
+// console.log("Average change in Profit/Losses: $" + averageChange);
+
+// for (let j = 0; j < finances.length; j++) {
+//   let netTotalArray = 
+// }
+
+var dateArray = finances.map(record => record[0]); // Extracting dates (index 0) from each record
+var moneyArray = finances.map(record => record[1]);
+
+let netTotal = 0
+let totalChange = 0
+
+for (let k = 0; k < dateArray.length; k++){
+netTotal += moneyArray[k]
+}
+
+// dateArray.length - 1 to avoid going out of bounds
+for (let l = 0; l < dateArray.length-1; l++){
+totalChange += moneyArray[l] - moneyArray[l+1]
+}
+
+var averageChange = totalChange/(dateArray.length - 1)
+// The spread syntax spreads the element of money array into the individual argument.
+let a = Math.max(...moneyArray)
+let b = Math.min(...moneyArray) 
+
+
+// Results
+console.log ("Total Months: " + dateArray.length)
+console.log ("Total: $" + netTotal)
+console.log(averageChange)
+console.log("Greatest Increase in Profits/Lossess: $" + a)
+console.log("Greatest Decrease in Profits/Lossess: $" + b)
