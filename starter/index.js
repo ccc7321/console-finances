@@ -130,12 +130,12 @@ totalChange += moneyArray[l] - moneyArray[l+1]
 var averageChange = totalChange/(dateArray.length - 1)
 // The spread syntax spreads the element of money array into the individual argument.
 let a = Math.max(...moneyArray)
-let b = Math.min(...moneyArray)
+let b = Math.min(...moneyArray) 
 
 
 // Results
 console.log ("Total Months: " + dateArray.length)
 console.log ("Total: $" + netTotal)
 console.log(averageChange)
-console.log("Greatest Increase in Profits/Lossess: " + a)
-console.log("Greatest Decrease in Profits/Lossess: " + b)
+console.log("Greatest Increase in Profits/Lossess: $" + a)
+console.log("Greatest Decrease in Profits/Lossess: $" + b)
