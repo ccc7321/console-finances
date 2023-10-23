@@ -112,7 +112,9 @@ var finances = [
 //   let netTotalArray = 
 // }
 
-var dateArray = finances.map(record => record[0]); // Extracting dates (index 0) from each record
+// map
+
+var dateArray = finances.map(record => record[0]); 
 var moneyArray = finances.map(record => record[1]);
 
 let netTotal = 0
@@ -122,10 +124,13 @@ for (let k = 0; k < dateArray.length; k++){
 netTotal += moneyArray[k]
 }
 
-// dateArray.length - 1 to avoid going out of bounds
+// dateArray.length - 1 to avoid going out of bounds, because it counts the length but js reads from 0
 for (let l = 0; l < dateArray.length-1; l++){
-totalChange += moneyArray[l] - moneyArray[l+1]
+  // change equation (new - old)/old -> how much did it change compare to the old value
+totalChange += moneyArray[l+1] - moneyArray[l]
 }
+
+
 
 var averageChange = totalChange/(dateArray.length - 1)
 // The spread syntax spreads the element of money array into the individual argument.
@@ -136,6 +141,7 @@ let b = Math.min(...moneyArray)
 // Results
 console.log ("Total Months: " + dateArray.length)
 console.log ("Total: $" + netTotal)
-console.log(averageChange)
+// use to fixed to show different decimal places
+console.log(averageChange.toFixed(2))
 console.log("Greatest Increase in Profits/Lossess: $" + a)
 console.log("Greatest Decrease in Profits/Lossess: $" + b)
